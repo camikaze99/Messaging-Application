@@ -1,3 +1,4 @@
+
 import socket
 import threading
 import sys
@@ -8,38 +9,39 @@ connections = []
 
 class Server:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# List of connections/clients.
     connections = []
     def __init__(self):
         self.sock.bind(('0.0.0.0', 10000))
+# Listens for 10 active connections.
         self.sock.listen(1)
 
-    def handler(self, c, a):
+    def handler(self, chatConnection, ipAddress):
+        defaultMessage = "Welcome to the chatroom. Please do not swear or spam or there with be consequences."
+
+        chatConnection.send(bytes(defaultMessage, 'utf-8'))
         while True:
-            data = c.recv(1024)
+            userMessage = chatConnection.recv(1024)
             for connection in self.connections:
-                connection.send(data)
-            if not data:
-                print(str(a[0]) + ':' + str(a[1]), "disconnected")
-                self.connections.remove(c)
-                c.close()
+                print(str(ipAddress[0]) + '-----' + str(chatConnection))
+                connection.send(userMessage)
+            if not userMessage:
+                print(str(ipAddress[0]) + ':' + str(ipAddress[1]), "disconnected")
+                self.connections.remove(chatConnection)
+                chatConnection.close()
                 break
 
     def run(self):
         while True:
-            c, a = self.sock.accept()
-            cThread = threading.Thread(target = self.handler, args = (c, a))
-            cThread.deamon = True
-            cThread.start()
-            self.connections.append(c)
-            print(str(a[0]) + ':' + str(a[1]), "connected")
+            chatConnection, ipAddress = self.sock.accept()
+            chatConnectionThread = threading.Thread(target = self.handler, args = (chatConnection, ipAddress))
+            chatConnectionThread.deamon = True
+            chatConnectionThread.start()
+            self.connections.append(chatConnection)
+            print(str(ipAddress[0]) + ':' + str(ipAddress[1]), "connected")
 
 if (len(sys.argv) > 1):
     client = chatClient.Client(sys.argv[1])
 else:
     server = Server()
     server.run()
-
-#stopServer = input()
-#if stopServer == 'stopthisserver':
-#print("Shutting down...")
-#cThread._Thread__stop()
