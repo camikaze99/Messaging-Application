@@ -22,10 +22,11 @@ class Client:
         iThread.start()
 
         while True:
-            data = self.sock.recv(1024)
-            if not data:
+            userMessage = self.sock.recv(1024)
+            if not userMessage:
                 break
-            print(str(data, 'utf-8'))
+            print(address + ":" + str(userMessage, 'utf-8'))
+#            print(str(userMessage, 'utf-8'))
 
 if (len(sys.argv) > 1):
     client = Client(sys.argv[1])
