@@ -3,9 +3,6 @@ import threading
 import sys
 import chatserver as chatServer
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-connections = []
-
 class Client:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
