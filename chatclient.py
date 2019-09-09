@@ -22,7 +22,7 @@ class Client:
             userMessage = self.sock.recv(1024)
             if not userMessage:
                 break
-            print(address + ":" + str(userMessage, 'utf-8'))
+#            print(address + ":" + str(userMessage, 'utf-8'))
 #            print(str(userMessage, 'utf-8'))
 
 if (len(sys.argv) > 1):
