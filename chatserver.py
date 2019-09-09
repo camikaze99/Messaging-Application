@@ -9,7 +9,7 @@ class Server:
     connections = []
     def __init__(self):
         self.sock.bind(('0.0.0.0', 10000))
-# Listens for 10 active connections.
+# Listens for 1 active connection.
         self.sock.listen(1)
 
     def handler(self, chatConnection, ipAddress):
