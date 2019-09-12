@@ -1,25 +1,29 @@
 <html>
-  <head>
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="login.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Please login</h1>
-      <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="loginbox">
+      <img src="" class="avatar">
+        <h1>Login Here</h1>
+        <form action="" method="post">
+          <p>Username</p>
+          <input type="text" placeholder="Username" name="username" value="{{
+            request.form.username }}">
+          <p>Password</p>
+           <input type="password" placeholder="Password" name="password" value="{{
+            request.form.password }}">
+          <input class="btn btn-default" type="submit" value="Login">
+        </form>
+          <button onclick="location.href = 'register';" type="submit" class="btn btn-default">Register</button>
 
-      <button onclick="location.href = 'register';" id="registerButton" class="float-left submit-button" >Register</button>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
+        {% if error %}
+          <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif%}
     </div>
+    <a href="login_en.html"><img src="english.png"></a>
   </body>
 </html>
