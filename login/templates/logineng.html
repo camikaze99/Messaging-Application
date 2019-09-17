@@ -1,29 +1,29 @@
-<html>l
+<html>
 <head>
-  <title>Inloggen</title>
+  <title>Login</title>
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
     <div class="loginbox">
       <img src="" class="avatar">
-        <h1>Hier inloggen</h1><br>
+        <h1>Login Here</h1>
         <form action="" method="post">
-          <p>Gebruikersnaam</p>
+          <p>Username</p>
           <input type="text" placeholder="Username" name="username" value="{{
             request.form.username }}">
-          <p>Wachtwoord</p>
+          <p>Password</p>
            <input type="password" placeholder="Password" name="password" value="{{
-            request.form.password }}"><br><br>
+            request.form.password }}">
           <input class="btn btn-default" type="submit" value="Login">
         </form>
           <button onclick="location.href = 'register';" type="submit" class="btn btn-default">Register</button>
 
         {% if error %}
-          <p class="error"><strong>Error: <br></strong> {{error}}</p>
+          <p class="error"><strong>Error:</strong> {{error}}</p>
         {% endif%}
     </div>
-      <a href="/logineng"><img src="english.png"></a>
+    <a href="login.html"><img src="english.png"></a>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   </body>
 </html>
