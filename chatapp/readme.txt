@@ -7,4 +7,5 @@ pip install flask
 
 For Linux:
 export FLASK_APP=app.py
+flask run
 
