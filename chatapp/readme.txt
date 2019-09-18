@@ -4,3 +4,7 @@ Download OP PYCHARM
 pip install Flask-SocketIO
 pip install eventlet
 pip install flask
+
+For Linux:
+export FLASK_APP=app.py
+
