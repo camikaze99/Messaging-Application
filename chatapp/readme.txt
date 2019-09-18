@@ -9,3 +9,7 @@ For Linux:
 export FLASK_APP=app.py
 flask run
 
+
+For Windows:
+set FLASK_APP=app.py
+flask run
