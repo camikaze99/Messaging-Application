@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Chat Room</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css') }}">
+    <!--we need to include jquery and socket.js scripts in our HTML file.
+    To do that we need to import these scripts before writing our JS Functions.
+    -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+<script type="text/javascript">
+$(document).ready(function() {
+	var socket = io.connect('http://127.0.0.1:5000');
+	// // luister naar het evenement - SOCKET.ON
+	socket.on('connect', function() {
+		socket.send('User has connected!');
+	});
+	socket.on('message', function(msg) {
+	    //FUNCTIE VAN app.py msg wordt opgeroepen
+		$("#messages").append(msg + '<br>');
+	});
+	$('#sendbutton').on('click', function() {
+	    //BERICHT wordt verstuurd naar de socket
+		socket.send($('#myMessage').val());
+		//JE MAAKT HET VELD LEEG
+		$('#myMessage').val('');
+	});
+});
+</script>
+
+
+<a href="logout">Logout</a>
+<!-- zorgt ervoor dat de messages in een lijst staan -->
+<ul id="messages"></ul>
+    <div class="position">
+        <input type="text" id="myMessage">
+        <button id="sendbutton">Send</button>
+    </div>
+</div>
+</body>
+</html>
