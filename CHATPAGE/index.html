@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Chat Room</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/chat.css') }}">
     <!--we need to include jquery and socket.js scripts in our HTML file.
     To do that we need to import these scripts before writing our JS Functions.
     -->
@@ -37,7 +37,7 @@ $(document).ready(function() {
 <ul id="messages"></ul>
     <div class="position">
         <input type="text" id="myMessage">
-        <button id="sendbutton">Send</button>
+        <button id="sendbutton">Submit</button>
     </div>
 </div>
 </body>
