@@ -36,12 +36,15 @@ def termsandprivacy():
 @loginpage.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
+    usernames=['admin','bob','kees','nick','james']
+    passwords=['admin10','bob10','kees10','nick10','james10']
+
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] !='admin':
-            error = 'Invalid credentials'
-        else:
+        if request.form['username'] in usernames and request.form['password'] in passwords:
             session['logged_in'] = True
             return redirect(url_for('index'))
+        else:
+            error = 'Invalid credentials'
     return render_template('login.html', error=error)
 
 @loginpage.route('/logout')
