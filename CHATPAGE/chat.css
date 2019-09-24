@@ -1,37 +1,33 @@
 #myMessage
 {
+  /*opmaak van de text field*/
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+  /*positie van de text field*/
+  position:absolute;
+  bottom:0;
+  /*breedte en de hoogte van de text field*/
+  width: 75%;
+  height: 50px;
 }
 
 #sendbutton
 {
-button-align:bottom;
+  /*positie van de button*/
+position:absolute;
+right:0;
+bottom:0;
+  /*opmaak van de button*/
+background: #0066A2;
+color: white;
+border-style: outset;
+border-color: #0066A2;
+height: 50px;
+width: 100px;
+font: bold 15px arial, sans-serif;
+text-shadow:none;
 }
 
-.wrapper
-{
-  margin-right: auto; /* 1 */
-  margin-left:  auto; /* 1 */
-
-  height: 100%;
-  width: 100%;
-
-  padding-right: 10px; /* 3 */
-  padding-left:  10px; /* 3 */
-}
-
-.position
-{
-  position: fixed;
-  border: 1px solid blue;
-  background-color: rgba(255,200,200,0.5);
-  width: 300px;
-  height: 100px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
