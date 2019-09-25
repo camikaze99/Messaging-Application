@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Chat Room</title>
+    <link rel="stylesheet" type="text/css" href="chat.css">                         <!--we need to include jquery and socket.js scripts in our HTML file. To do that we need to import these scripts before writing our JS Functions.-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <div id="logout">
+        <a href="logout">Logout</a>
+    </div>
+    <div id="chat_wrapper">
+        <div id="chat_wrapper_left">
+            <ul id="messages"></ul>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    var socket = io.connect('http://127.0.0.1:5000');
+                    socket.on('connect', function() {
+                        socket.send('User has connected!');
+                    });
+                    socket.on('message', function(msg) {
+                        $("#messages").append(msg + '<br>');
+                    });
+                    $('#sendbutton').on('click', function() {
+                        socket.send($('#myMessage').val());
+                        $('#myMessage').val('');
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <div id="input_wrapper">
+        <div id="input_position">
+            <input type="text" placeholder="Type a message" id="myMessage">
+            <button id="sendbutton">Submit</button>
+            <input type="file">
+        </div>
+    </div>
+</div>
+</body>
+</html>
