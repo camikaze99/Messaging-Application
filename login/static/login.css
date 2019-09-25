@@ -1,5 +1,5 @@
 body{
-    background-image: url(pic1.jpg);
+    background-image: url(matrix.gif);
     background-size: auto;
     background-position top;
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@ h1{
   border: None;
   height: 10%;
   width: 100%;
-  background: red;
+  background: green;
   font-size: 20px;
   border-radius: 20px;
   font-family: "Times New Roman";
@@ -61,7 +61,7 @@ h1{
   outline: none;
   height: 10%;
   width: 100%;
-  background: red;
+  background: green;
   font-size: 20px;
   border-radius: 20px;
   font-family: "Times New Roman";
