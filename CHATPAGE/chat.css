@@ -1,43 +1,94 @@
-body {
-  background-color: black;
+body, html {
+  background-color: darkgrey;
+  height: auto;
+  width: auto;
 }
 
+#wrapper
+{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#logout
+{
+    float: right;
+}
+
+#chat_wrapper
+{
+    height: 500;
+    width: 1000px;
+    display: inline-block;
+    border: solid black 2px;
+    border-radius: 18px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    overscroll-behavior: contain;
+}
+
+#chat_wrapper_left
+{
+    height: auto;
+    width: auto;
+    text-align: left;
+    overflow: auto;
+}
+
+#input_wrapper
+{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#input_position
+{
+    display: inline-block;
+    height: auto;
+    width: 900;
+}
 
 #myMessage
 {
   /*opmaak van de text field*/
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-  /*positie van de text field*/
-  position:absolute;
-  bottom:0;
-  /*breedte en de hoogte van de text field*/
-  width: 75%;
-  height: 50px;
+    border: 2px solid #dedede;
+    border-radius: 18px;
+    background-color: #f1f1f1;
+    height: 50;
+    width: 500;
+  /*!*positie van de text field*!*/
+  /*position:absolute;*/
+  /*bottom:0;*/
+  /*!*breedte en de hoogte van de text field*!*/
+  /*width: 75%;*/
+  /*height: 50px;*/
 }
 
 #sendbutton
 {
-  /*positie van de button*/
-position:absolute;
-right:0;
-bottom:0;
+/*  !*positie van de button*!*/
+/*position:absolute;*/
+/*right:0;*/
+/*bottom:0;*/
   /*opmaak van de button*/
-background: #0066A2;
-color: white;
-border-style: outset;
-border-color: #0066A2;
-height: 50px;
-width: 100px;
-font: bold 15px arial, sans-serif;
-text-shadow:none;
+  background: #0066A2;
+    color: white;
+    border-style: outset;
+    border-color: #0066A2;
+    height: 50px;
+    width: 100px;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+    border-radius: 18px;
 
-/*button naar benden brengen*/
-padding: 10px;
-margin: 10px 0;
+/*!*button naar benden brengen*!*/
+/*padding: 10px;*/
+/*margin: 10px 0;*/
 }
 
 
