@@ -10,49 +10,69 @@
 
 </head>
 <body>
-    <div class="wrapper">
-<script type="text/javascript">
-$(document).ready(function() {
-	var socket = io.connect('http://127.0.0.1:5000');
-	// // luister naar het evenement - SOCKET.ON
-	socket.on('connect', function() {
-		socket.send('User has connected!');
-	});
-	//FUNCTIE VAN app.py msg wordt opgeroepen
-	socket.on('message', function(msg) {
-var div = document.createElement("div");
-div.style.border = "2px solid #dedede";
-div.style.backgroundColor = "#f1f1f1";
-div.style.borderRadius= "5px";
-div.style.padding = "10px";
-div.style.margin="10px 0";
-div.innerHTML=msg;
-document.getElementById("messages").appendChild(div);
+   <div id="wrapper">
+         <div id="logout">
+        <a href="logout">Logout</a>
+         </div>
+         <div id="chat_wrapper">
+            <div id="chat_wrapper_left">
+            <!-- zorgt ervoor dat de messages in een lijst staan -->
+                <ul id="messages"></ul>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                    var socket = io.connect('http://127.0.0.1:5000');
+                    // // luister naar het evenement - SOCKET.ON
+                    socket.on('connect', function() {
+                    socket.send('User has connected!');
+                    });
 
+                    //FUNCTIE VAN app.py msg wordt opgeroepen
+                    socket.on('message', function(msg) {
+                    var div = document.createElement("div");
+                    div.style.border = "2px solid #dedede";
+                    div.style.backgroundColor = "#f1f1f1";
+                    div.style.borderRadius= "5px";
+                    div.style.padding = "10px";
+                    div.style.margin="10px 0";
+                    div.innerHTML=msg;
+                    document.getElementById("messages").appendChild(div);
+                    {#$("#messages").append(msg + '<br>');#}
+                    });
+                    $('#sendbutton').on('click', function() {
+                     //BERICHT wordt verstuurd naar de socket
+                    socket.send($('#myMessage').val());
+                    //JE MAAKT HET VELD LEEG
+                    $('#myMessage').val('');
+                    });
+                    });
 
-		{#$("#messages").append(msg + '<br>');#}
+{#                    //if you want to update ONLY if the user didn't move#}
+{#                    var scrolled = false;#}
+{##}
+{#                    function updateScroll(){#}
+{#                    if(!scrolled){#}
+{#                                 var element = document.getElementById("chat_wrapper_left");#}
+{#                                 element.scrollTop = element.scrollHeight;#}
+{#                                 }#}
+{#                    }#}
+{##}
+{#$("#chat_wrapper_left").on('scroll', function(){#}
+{#    scrolled=true;#}
+{#});#}
+                </script>
+            </div>
+        </div>
+       <div id="input_wrapper">
+        <div id="input_position">
 
-
-
-	});
-	$('#sendbutton').on('click', function() {
-	    //BERICHT wordt verstuurd naar de socket
-		socket.send($('#myMessage').val());
-		//JE MAAKT HET VELD LEEG
-		$('#myMessage').val('');
-	});
-});
-</script>
-
-
-<a href="logout">Logout</a>
-<!-- zorgt ervoor dat de messages in een lijst staan -->
-<ul id="messages"></ul>
     <div class="position">
-        <input type="text" id="myMessage">
+        <input type="text" id="myMessage" placeholder="Type a message">
         <button id="sendbutton">Submit</button>
+        <input type="file">
+     </div>
     </div>
-</div>
+    </div>
+   </div>
 </body>
 </html>
 
