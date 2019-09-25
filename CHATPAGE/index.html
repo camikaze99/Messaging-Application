@@ -18,9 +18,22 @@ $(document).ready(function() {
 	socket.on('connect', function() {
 		socket.send('User has connected!');
 	});
+	//FUNCTIE VAN app.py msg wordt opgeroepen
 	socket.on('message', function(msg) {
-	    //FUNCTIE VAN app.py msg wordt opgeroepen
-		$("#messages").append(msg + '<br>');
+var div = document.createElement("div");
+div.style.border = "2px solid #dedede";
+div.style.backgroundColor = "#f1f1f1";
+div.style.borderRadius= "5px";
+div.style.padding = "10px";
+div.style.margin="10px 0";
+div.innerHTML=msg;
+document.getElementById("messages").appendChild(div);
+
+
+		{#$("#messages").append(msg + '<br>');#}
+
+
+
 	});
 	$('#sendbutton').on('click', function() {
 	    //BERICHT wordt verstuurd naar de socket
@@ -42,3 +55,5 @@ $(document).ready(function() {
 </div>
 </body>
 </html>
+
+
