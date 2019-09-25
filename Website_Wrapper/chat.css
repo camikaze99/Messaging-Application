@@ -1,0 +1,79 @@
+
+
+body, html
+{
+    height: auto;
+    width: auto;
+}
+
+#wrapper
+{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#logout
+{
+    float: right;
+}
+
+#chat_wrapper
+{
+    height: 500;
+    width: 1000px;
+    display: inline-block;
+    border: solid black 2px;
+    border-radius: 18px;
+}
+
+#chat_wrapper_left
+{
+    height: auto;
+    width: auto;
+    text-align: left;
+}
+
+#input_wrapper
+{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#input_position
+{
+    display: inline-block;
+    height: auto;
+    width: 900; 
+}
+
+#myMessage
+{
+
+    /*Opmaak*/
+    border: 2px solid #dedede;
+    border-radius: 18px;
+    background-color: #f1f1f1;
+    height: 50;
+    width: 500;
+}
+
+#sendbutton
+{
+    /*Opmaak*/
+    background: #0066A2;
+    color: white;
+    border-style: outset;
+    border-color: #0066A2;
+    height: 50px;
+    width: 100px;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+    border-radius: 18px;
+    /*Positie*/
+}
+
+
