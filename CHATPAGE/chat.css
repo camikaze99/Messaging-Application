@@ -1,3 +1,8 @@
+body {
+  background-color: black;
+}
+
+
 #myMessage
 {
   /*opmaak van de text field*/
@@ -29,5 +34,11 @@ height: 50px;
 width: 100px;
 font: bold 15px arial, sans-serif;
 text-shadow:none;
+
+/*button naar benden brengen*/
+padding: 10px;
+margin: 10px 0;
 }
+
+
 
