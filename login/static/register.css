@@ -1,0 +1,79 @@
+body{
+    background-image: url(matrix.gif);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-family: "Times New Roman";
+    font-size: 115%;
+}
+
+.registerbox{
+  width: 420px;
+  height: 520px;
+  background: transparant;
+  color: white;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20;
+    text-align: left;
+    font-size: 22px;
+}
+
+.registerbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.registerbox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.registerbox input[type="text"], input[type="password"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparant;
+  outline: inherit;
+  height: 40px;
+}
+
+.registerbox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 260px;
+  background: green;
+  font-size: 20px;
+  border-radius: 20px;
+}
+/*register button:*/
+.registerbox button[type="submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 420px;
+  background: green;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.termsprivacy{
+  font-size: 20px;
+  color: white;
+  margin-top: 500;
+  margin-left: 430;
+}
+
+.already{
+  font-size: 20px;
+  color: white;
+  margin-left: 430;
+}
