@@ -1,0 +1,48 @@
+<html>
+	<head>
+	<title>Chat Room</title>
+		<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css') }}">-->
+		<!--we need to include jquery and socket.js scripts in our HTML file.
+		To do that we need to import these scripts before writing our JS Functions.
+		-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<script type="text/javascript">
+				var message = ('Hello world!')
+				window.alert(message)
+				
+				var encrypted = CryptoJS.AES.encrypt(message, "Secret Passphrase");
+				window.alert(encrypted)
+
+				var decrypted = CryptoJS.AES.decrypt(encrypted, "Secret Passphrase");				
+				var plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+				window.alert(plaintext)
+				
+
+				
+				$('#sendbutton').on('click', function() {
+
+					$('#myMessage').val('');
+				});
+
+			</script>
+
+			<a href="logout">Logout</a>
+			<!-- zorgt ervoor dat de messages in een lijst staan -->
+			<ul id="messages"></ul>
+			<div class="position">
+				<form>
+					<input type="text" id="myMessage"><br><br>
+					<input type="file" id="myMessage"><br><br>
+					<input type="submit" value="Send" id="sendbutton">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
